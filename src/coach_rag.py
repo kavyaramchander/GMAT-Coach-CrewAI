@@ -3,18 +3,15 @@ import random
 from dotenv import load_dotenv
 from langchain_community.document_loaders import PyPDFDirectoryLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-# --- GEMINI RAG CONFIG ---
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
-# -------------------------
 from langchain_community.vectorstores import Chroma
 from langchain_core.documents import Document
 from typing import List, Any
 
 os.environ['GEMINI_API_KEY'] = "REPLACE W API KEY"
-# ------------------------------------------------
+
 load_dotenv() # Still call this, but the key is now set
 
-# config
 PERSIST_DIRECTORY = "data/chroma_db"
 KB_PATH = "data/gmat_prep"
 QB_PATH = "data/gmatqb"
@@ -93,7 +90,7 @@ def create_vector_store(chunks: List[Document], persist_directory: str):
     print("\n--- Creating and Persisting Vector Store ---")
     
     try:
-        # --- GUARANTEED FIX: Pass the key directly to the model constructor ---
+        # GUARANTEED FIX: Pass the key directly to the model constructor 
         embeddings = GoogleGenerativeAIEmbeddings(
             model="embedding-001",
             google_api_key=gemini_api_key # <--- THE FIX
@@ -113,7 +110,7 @@ def create_vector_store(chunks: List[Document], persist_directory: str):
     except Exception as e:
         print(f"An error occurred during vector store creation: {e}")
 
-# --- Main Execution ---
+#  Main Execution 
 
 if __name__ == "__main__":
     
