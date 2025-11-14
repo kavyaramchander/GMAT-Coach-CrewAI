@@ -1,0 +1,8 @@
+langchain
+langgraph # For advanced adaptive RAG flow 
+crewai
+pypdf 
+chromadb 
+tiktoken
+# Utility
+python-dotenv
