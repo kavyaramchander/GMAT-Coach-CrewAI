@@ -14,7 +14,7 @@ except Exception as e:
     print(f"FATAL ERROR: Failed to initialize Gemini LLM. Check the hardcoded key. Error: {e}")
     exit()
 
-# --- Agent Definitions ---
+# Agent Definitions
 
 # 1. Assessment Agent (Expert Rater/Grader)
 assessment_agent = Agent(
